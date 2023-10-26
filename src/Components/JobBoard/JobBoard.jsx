@@ -4,25 +4,26 @@ import JobItem from "./JobItem/JobItem";
 import { useEffect, useState } from "react";
 
 const Ul = styled.ul`
-	list-style: none;
-	padding-top: 80px;
-	padding-bottom: 40px;
+  list-style: none;
+  padding-top: 80px;
+  padding-bottom: 40px;
 `;
 
 export default function JobBoard() {
-	const [jobItems, setJobItems] = useState([]);
+  const [jobItems, setJobItems] = useState([]);
+  const [filteredLang, setFilteredLang] = useState([]);
 
-	useEffect(() => {
-		setJobItems(data);
-	}, []);
+  useEffect(() => {
+    setJobItems(data);
+  }, []);
 
-	console.log(jobItems);
+  console.log(jobItems);
 
-	return (
-		<Ul>
-			{jobItems.map((jobDetails) => (
-				<JobItem key={Math.random()} jobDetails={jobDetails} />
-			))}
-		</Ul>
-	);
+  return (
+    <Ul>
+      {jobItems.map((jobDetails) => (
+        <JobItem key={Math.random()} jobDetails={jobDetails} />
+      ))}
+    </Ul>
+  );
 }
