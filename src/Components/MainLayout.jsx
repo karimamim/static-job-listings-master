@@ -2,6 +2,7 @@ import styled from "styled-components";
 import desktopBg from "../assets/images/bg-header-desktop.svg";
 import mobileBg from "../assets/images/bg-header-mobile.svg";
 import JobBoard from "./JobBoard/JobBoard";
+import Filter from "./Filter/Filter";
 
 const InnerRoot = styled.div`
 	background-color: ${(props) => props.theme.colors.background};
@@ -32,6 +33,7 @@ export default function MainLayout(props) {
 		<InnerRoot>
 			<Header />
 			<Main>
+				<Filter />
 				<JobBoard />
 				{/* <LayOut /> */}
 			</Main>

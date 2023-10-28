@@ -1,29 +1,35 @@
 import styled from "styled-components";
-import data from "../../lib/data";
 import JobItem from "./JobItem/JobItem";
-import { useEffect, useState } from "react";
+import { useLocalContext } from "../../Context/Context";
 
 const Ul = styled.ul`
-  list-style: none;
-  padding-top: 80px;
-  padding-bottom: 40px;
+	list-style: none;
+	padding-top: 40px;
+	padding-bottom: 40px;
 `;
 
 export default function JobBoard() {
-  const [jobItems, setJobItems] = useState([]);
-  const [filteredLang, setFilteredLang] = useState([]);
+	const { terms, jobItems } = useLocalContext();
 
-  useEffect(() => {
-    setJobItems(data);
-  }, []);
+	const isCommon = (languages) => {
+		let newArr = terms.filter((term) => languages.includes(term));
 
-  console.log(jobItems);
+		return newArr.length > 0;
+	};
 
-  return (
-    <Ul>
-      {jobItems.map((jobDetails) => (
-        <JobItem key={Math.random()} jobDetails={jobDetails} />
-      ))}
-    </Ul>
-  );
+	const getFiltered = () => {
+		return jobItems.filter((item) => {
+			return isCommon(item.languages);
+		});
+	};
+
+	const filteredItems = terms.length < 1 ? jobItems : getFiltered();
+
+	return (
+		<Ul>
+			{filteredItems.map((jobDetails) => (
+				<JobItem key={Math.random()} jobDetails={jobDetails} />
+			))}
+		</Ul>
+	);
 }
