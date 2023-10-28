@@ -9,7 +9,8 @@ const LangUl = styled.ul`
   align-items: end;
 `;
 
-const Li = styled.li`
+const Button = styled.button`
+  border: none;
   background-color: hsl(180deg 37.51% 92.44%);
   color: ${(props) => props.theme.colors.primary};
   padding: 8px 15px;
@@ -26,7 +27,9 @@ function JobLang({ languages }) {
   return (
     <LangUl>
       {languages.map((language) => (
-        <Li>{language}</Li>
+        <li key={Math.random()}>
+          <Button>{language}</Button>
+        </li>
       ))}
     </LangUl>
   );

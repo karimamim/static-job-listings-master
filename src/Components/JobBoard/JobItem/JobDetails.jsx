@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import JobMeta from "./JobMeta";
+import JobMeta from "./JobMeta/JobMeta";
 import JobContract from "./JobContract";
 
 const Title = styled.h2`
