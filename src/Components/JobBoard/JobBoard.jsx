@@ -14,7 +14,7 @@ export default function JobBoard() {
 	const isCommon = (languages) => {
 		let newArr = terms.filter((term) => languages.includes(term));
 
-		return newArr.length > 0;
+		return newArr.length === terms.length;
 	};
 
 	const getFiltered = () => {
