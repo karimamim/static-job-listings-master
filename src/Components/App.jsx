@@ -1,6 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import JobBoard from "./JobBoard/JobBoard";
 import MainLayout from "./MainLayout";
+import ContextProvider from "../Context/Context";
 
 const theme = {
 	colors: {
@@ -19,9 +20,11 @@ const theme = {
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
-			<MainLayout>
-				<JobBoard />
-			</MainLayout>
+			<ContextProvider>
+				<MainLayout>
+					<JobBoard />
+				</MainLayout>
+			</ContextProvider>
 		</ThemeProvider>
 	);
 }
